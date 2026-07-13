@@ -383,8 +383,16 @@ function Index() {
                 {[
                   { l: "LINKEDIN", h: "https://www.linkedin.com/in/akshay-gedam" },
                   { l: "GITHUB", h: "https://github.com/AkshayG079" },
+                  { l: "RESUME", h: "#" },
                 ].map((s) => (
-                  <a key={s.l} href={s.h} target="_blank" rel="noreferrer" className="bg-[var(--orange)] text-white px-5 py-3 font-black text-xs uppercase tracking-widest brutal-border hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_#fff] transition-all" style={{ borderColor: "#fff" }}>
+                  <a 
+                    key={s.l} 
+                    href={s.h} 
+                    target={s.h !== "#" ? "_blank" : undefined} 
+                    rel="noreferrer" 
+                    className="bg-[var(--orange)] text-white px-5 py-3 font-black text-xs uppercase tracking-widest brutal-border hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_#fff] transition-all cursor-none" 
+                    style={{ borderColor: "#fff" }}
+                  >
                     {s.l} ↗
                   </a>
                 ))}
