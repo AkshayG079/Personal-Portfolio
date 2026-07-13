@@ -17,7 +17,7 @@ const projects: Project[] = [
   {
     name: "Result Management System",
     tag: "MERN Stack Application",
-    desc: "A full-stack student database and grading portal. Supports admin portals for records creation, score inputs, automated GPA calculators, and secure student grade views.",
+    desc: "A full-stack student database and grading portal. Supports admin portals for records creation, score inputs, automated GPA calculators and secure student grade views.",
     stack: ["MongoDB", "Express", "React", "Node.js", "JWT"],
     color: "#2ecc71",
     textOn: "#0a0a0a",
@@ -27,10 +27,10 @@ const projects: Project[] = [
     live: "https://github.com/AkshayG079/Result-Management-System-MERN.git",
   },
   {
-    name: "Resume Builder",
-    tag: "Frontend Tool",
-    desc: "An interactive, browser-based resume builder application. Drag, drop, format, and customize multiple professional templates with real-time editing and PDF generation.",
-    stack: ["React", "HTML5", "CSS3", "jsPDF", "Tailwind"],
+    name: "AI Resume Builder & ATS Scanner",
+    tag: "AI-Powered Full Stack Tool",
+    desc: "A resume builder with professional templates, real-time editing, PDF export, and AI-powered ATS scoring with resume feedback.",
+    stack: ["React", "Express", "Node.js", "Gemini API", "jsPDF", "MUI", "Tailwind"],
     color: "#2a7fff",
     textOn: "#ffffff",
     span: "md:col-span-2",
@@ -41,8 +41,8 @@ const projects: Project[] = [
   {
     name: "Tic Tac Toe",
     tag: "Interactive Game",
-    desc: "A clean and engaging classic Tic-Tac-Toe browser game. Built with smooth motion transitions, simple responsive layouts, score tracking, and a smart bot opponent.",
-    stack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    desc: "A clean and engaging classic Tic-Tac-Toe browser game. Built with smooth motion transitions, simple responsive layouts and a smart bot opponent.",
+    stack: ["HTML5", "CSS3", "JAVASCRIPT"],
     color: "#ff6b00",
     textOn: "#0a0a0a",
     span: "md:col-span-2",
@@ -77,14 +77,14 @@ function ResultManagementMock() {
             <div key={subj.label} className="flex justify-between items-center brutal-border p-1 text-[8px] font-bold">
               <span>{subj.label}</span>
               <div className="flex items-center gap-1.5">
-                <button 
+                <button
                   onClick={() => subj.set(Math.max(0, subj.val - 5))}
                   className="w-3.5 h-3.5 flex items-center justify-center border border-black bg-neutral-100 hover:bg-neutral-200 font-bold active:translate-y-0.5 cursor-pointer"
                 >
                   -
                 </button>
                 <span className="w-5 text-center">{subj.val}</span>
-                <button 
+                <button
                   onClick={() => subj.set(Math.min(100, subj.val + 5))}
                   className="w-3.5 h-3.5 flex items-center justify-center border border-black bg-neutral-100 hover:bg-neutral-200 font-bold active:translate-y-0.5 cursor-pointer"
                 >
@@ -134,10 +134,10 @@ function ResumeBuilderMock() {
         </div>
       </div>
       <div className="flex gap-1.5 mt-2">
-        <input 
-          type="text" 
-          value={name} 
-          onChange={(e) => setName(e.target.value)} 
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           className="w-1/2 text-[8px] px-1 py-0.5 border border-black bg-white rounded-none outline-none font-bold"
         />
@@ -229,8 +229,8 @@ function TicTacToeMock() {
           ))}
         </div>
       </div>
-      <button 
-        onClick={resetGame} 
+      <button
+        onClick={resetGame}
         className="w-full text-[8px] font-black uppercase border border-black bg-black text-white py-0.5 text-center hover:bg-neutral-800 cursor-pointer"
       >
         Reset
@@ -240,26 +240,31 @@ function TicTacToeMock() {
 }
 
 function MockUI({ kind }: { kind: Project["mock"] }) {
-  if (kind === "result") {
-    return <ResultManagementMock />;
-  }
-  if (kind === "resume") {
-    return <ResumeBuilderMock />;
-  }
-  return <TicTacToeMock />;
+  return (
+    <div className="w-full h-full flex flex-col">
+      <div className="flex-1 min-h-0">
+        {kind === "result" && <ResultManagementMock />}
+        {kind === "resume" && <ResumeBuilderMock />}
+        {kind === "tictactoe" && <TicTacToeMock />}
+      </div>
+      <div className="bg-black/90 text-white text-[7px] font-bold text-center py-1 px-2 tracking-wider uppercase">
+        ⚠ Demo preview only — real app differs. Check links ↗
+      </div>
+    </div>
+  );
 }
 
 export function BentoProjects() {
   const [hover, setHover] = useState<string | null>(null);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 md:auto-rows-[260px] gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-4 md:auto-rows-[340px] gap-5">
       {projects.map((p) => (
         <article
           key={p.name}
           data-hover
           onMouseEnter={() => setHover(p.name)}
           onMouseLeave={() => setHover(null)}
-          className={`relative overflow-hidden brutal-border brutal-shadow p-6 md:p-8 transition-transform hover:-translate-x-1 hover:-translate-y-1 ${p.span}`}
+          className={`relative brutal-border brutal-shadow p-6 md:p-8 transition-transform hover:-translate-x-1 hover:-translate-y-1 ${p.span}`}
           style={{ background: p.color, color: p.textOn }}
         >
           <div className="flex flex-col h-full justify-between relative z-10">
@@ -268,7 +273,7 @@ export function BentoProjects() {
               <h3 className="text-4xl md:text-5xl font-black leading-none mb-3">{p.name}</h3>
               <p className="text-sm md:text-base font-medium max-w-md leading-snug">{p.desc}</p>
             </div>
-            
+
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 mt-4 z-30 relative">
               {p.github && (
@@ -291,7 +296,7 @@ export function BentoProjects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-black uppercase tracking-widest px-3 py-1.5 border-2 transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] cursor-none"
-                  style={{ 
+                  style={{
                     borderColor: p.textOn,
                     color: p.textOn === "#ffffff" ? "#0a0a0a" : "#ffffff",
                     backgroundColor: p.textOn
@@ -308,7 +313,7 @@ export function BentoProjects() {
             <div className="flex flex-wrap gap-2 mt-4 z-10">
               {p.stack.map(s => (
                 <span key={s} className="text-[10px] font-black uppercase tracking-wider border-2 px-2 py-0.5"
-                      style={{ borderColor: p.textOn }}>
+                  style={{ borderColor: p.textOn }}>
                   {s}
                 </span>
               ))}
@@ -316,9 +321,8 @@ export function BentoProjects() {
           </div>
 
           <div
-            className={`absolute top-4 right-4 w-[58%] h-[78%] transition-all duration-500 z-20 ${
-              hover === p.name ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-            }`}
+            className={`absolute top-4 right-4 w-[58%] h-[78%] transition-all duration-500 z-20 ${hover === p.name ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+              }`}
           >
             <div className="w-full h-full brutal-shadow">
               <MockUI kind={p.mock} />

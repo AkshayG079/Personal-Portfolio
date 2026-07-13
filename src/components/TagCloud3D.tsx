@@ -10,7 +10,7 @@ const TAGS = [
   { label: "MongoDB", desc: "Document store database for agile development cycles." },
   { label: "PostgreSQL", desc: "Relational integrity for structured datasets." },
   { label: "Redis", desc: "In-memory caching and message pub/sub routing." },
-  { label: "MySQL", desc: "Core relational DB backing enterprise systems like Sanvid." },
+  { label: "MySQL", desc: "Core relational DB backing enterprise systems." },
   { label: "REST APIs", desc: "Decoupled, scalable contract endpoints for frontend clients." },
   { label: "SSE", desc: "Server-Sent Events for push notifications & real-time milestones." },
   { label: "Docker", desc: "Containerized deployments and microservice reproducibility." },

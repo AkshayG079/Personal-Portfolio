@@ -25,7 +25,7 @@ const projects = [
     ],
   },
   {
-    name: "Sanvid BPM",
+    name: " BPM",
     tag: "Enterprise Business Automation",
     desc: "Designed and developed business process automation (CRM/ERP) workflow engine with multi-level project hierarchies, RBAC-based security, automated milestone tracking, and audit logging.",
     stack: ["Node.js", "Express", "MySQL", "SSE", "RBAC"],

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Akshay Gedam — Software Engineer & Full-Stack Developer, India. Specialized in Node.js, MERN stack, secure JWT/RBAC architectures, and enterprise business process automation systems like Sanvid.",
+          "Akshay Gedam — Software Engineer & Full-Stack Developer, India. Specialized in Node.js, MERN stack, secure JWT/RBAC architectures, and enterprise business process automation systems.",
       },
       { property: "og:title", content: "AKSHAY GEDAM — Full-Stack Developer" },
       {
@@ -237,7 +237,7 @@ function Index() {
         <div data-hero-meta className="absolute bottom-10 inset-x-0 px-6 md:px-10 flex justify-between items-end z-10">
           <div className="max-w-xs text-sm font-bold leading-tight">
             SOFTWARE ENGINEER<br />
-            <span className="font-medium opacity-70">I engineer secure, high-performance backends and scalable full-stack systems — from real-time apps to enterprise automation.</span>
+            <span className="font-medium opacity-70">I engineer secure, high-performance backends and scalable full-stack systems from real-time apps to enterprise automation.</span>
           </div>
           <div className="text-xs font-black uppercase tracking-widest flex items-center gap-2">
             <span className="w-2 h-2 bg-[var(--orange)] rounded-full animate-pulse" />
@@ -373,7 +373,7 @@ function Index() {
                   href="mailto:gedamakshay150@gmail.com"
                   className="block text-lg sm:text-xl md:text-2xl lg:text-[1.4rem] xl:text-[1.8rem] 2xl:text-[2.2rem] font-black underline decoration-[var(--orange)] decoration-[3px] md:decoration-[4px] underline-offset-8 hover:text-[var(--orange)] transition-colors break-all mb-4"
                 >
-                  gedamakshay150@gmail.com →
+                  gedamakshay150@gmail.com
                 </a>
                 <div className="text-lg md:text-xl font-bold text-white/80">
                   📞 +91 9156073686
@@ -383,17 +383,18 @@ function Index() {
                 {[
                   { l: "LINKEDIN", h: "https://www.linkedin.com/in/akshay-gedam" },
                   { l: "GITHUB", h: "https://github.com/AkshayG079" },
-                  { l: "RESUME", h: "#" },
+                  { l: "RESUME", h: "/resume.pdf" },
                 ].map((s) => (
-                  <a 
-                    key={s.l} 
-                    href={s.h} 
-                    target={s.h !== "#" ? "_blank" : undefined} 
-                    rel="noreferrer" 
-                    className="bg-[var(--orange)] text-white px-5 py-3 font-black text-xs uppercase tracking-widest brutal-border hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_#fff] transition-all cursor-none" 
+                  <a
+                    key={s.l}
+                    href={s.h}
+                    target={s.l !== "RESUME" ? "_blank" : "_self"}
+                    rel="noreferrer"
+                    download={s.l === "RESUME" ? "resume.pdf" : undefined}
+                    className="bg-[var(--orange)] text-white px-5 py-3 font-black text-xs uppercase tracking-widest brutal-border hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_#fff] transition-all cursor-none"
                     style={{ borderColor: "#fff" }}
                   >
-                    {s.l} ↗
+                    {s.l} {s.l === "RESUME" ? "↓" : "↗"}
                   </a>
                 ))}
               </div>
